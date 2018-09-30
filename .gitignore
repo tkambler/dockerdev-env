@@ -1,2 +1,5 @@
-.DS_Store
-.env
+*
+!workspaces
+!.gitignore
+!docker-dev.js
+!user-config.yml
