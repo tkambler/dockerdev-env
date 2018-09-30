@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  
+  frontend:
+    image: frontend:development
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    restart: unless-stopped
+    ports:
+      - "9000:8000"
+    volumes:
+      - ./frontend:/opt/app
+      - frontend_modules:/opt/app/node_modules
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    external: false
+    driver: bridge
+
+volumes:
+  frontend_modules:

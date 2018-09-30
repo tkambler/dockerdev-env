@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  
+  api:
+    image: api:development
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/opt/app
+      - api_modules:/opt/app/node_modules
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    external: false
+    driver: bridge
+
+volumes:
+  api_modules:
