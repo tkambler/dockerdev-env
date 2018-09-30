@@ -29,8 +29,8 @@ services:
     ports:
       - "9000:8000"
     volumes:
-      - ./api:/opt/app
-      - api_modules:/opt/app/node_modules
+      - ./frontend:/opt/app
+      - frontend_modules:/opt/app/node_modules
     networks:
       - appnet
 

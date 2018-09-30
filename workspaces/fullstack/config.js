@@ -6,7 +6,7 @@ module.exports = (workspace) => {
 				name: 'API',
 				url: 'git@github.com:tkambler/dockerdev-example-api.git',
 				dest: 'api',
-				branch: 'develop',
+				branch: 'master',
 				service: 'api'
 			},
 			{
